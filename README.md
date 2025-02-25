@@ -13,9 +13,13 @@ In this repository, you'll find:
 
 ### Project Structure
 README.md: This file, providing an overview of the project.
+
 examples/: Contains sample projects and code snippets.
+
 docs/: Detailed documentation on various topics related to the API.
+
 src/: Source code for more advanced integrations and utilities.
+
 .env.example: Example file for API key configuration.
 
 ### Contributing
