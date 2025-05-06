@@ -1,0 +1,432 @@
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+  }
+
+  .directory-container {
+    max-width: 960px;
+    margin: auto;
+    padding: 20px 10px;
+  }
+
+  .search-box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .search-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .filter-bar {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  -webkit-overflow-scrolling: touch; /* for smooth iOS scroll */
+}
+
+
+
+  .filter-group {
+    position: relative;
+    min-width: 140px;
+    flex: 0 0 auto;
+  }
+
+  .filter-button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #f0f0f0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .dropdown {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 10;
+  border-radius: 6px;
+  font-size: 14px;
+  overflow: visible !important;
+}
+
+  .dropdown button {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: none;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+  }
+
+  .dropdown button:hover {
+    background: #f2f2f2;
+  }
+
+  .mentor-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .mentor-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 280px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  padding-bottom: 50px; /* Reserve space for pill */
+}
+
+
+  .mentor-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .mentor-card {
+    width: 100%;
+    max-width: 280px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .mentor-card:hover {
+    transform: scale(1.02);
+  }
+
+  .mentor-card img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+  .mentor-card h3 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+  }
+
+  .mentor-card p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #444;
+  }
+
+  .mentor-tag {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+  }
+  
+  
+    .featured-pill {
+    display: inline-block;
+    padding: 3px 8px;
+    margin: 4px 0;
+    font-size: 11px;
+    font-weight: 600;
+    background: #d9931e;
+    color: white;
+    border-radius: 999px;
+    width: auto;
+    white-space: nowrap;
+  }
+
+
+
+
+
+  .tag-tech { background: #3b82f6; }
+  .tag-finance { background: #10b981; }
+  .tag-law { background: #6366f1; }
+  .tag-project { background: #f59e0b; }
+  .tag-construction { background: #ef4444; }
+
+  .show-more, .clear-button-wrap {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .show-more button, .clear-button {
+    padding: 10px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    background: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .clear-button {
+    background: #6b7280;
+    margin-left: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .mentor-card {
+      width: 90%;
+    }
+  }
+  
+    /* Brand colour on tap/focus/hover */
+  .filter-button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .filter-button:focus,
+  .filter-button:active {
+    background-color: #d9931e !important;
+    color: white !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .filter-button:hover {
+    background-color: #cc841a;
+    color: white;
+  }
+
+</style>
+
+<div class="directory-container">
+
+  <div class="search-box">
+    <input type="text" id="mentorSearch" placeholder="Search by name or keyword...">
+  </div>
+
+  <div class="filter-bar">
+    <div class="filter-group">
+      <button class="filter-button" onclick="toggleDropdown('dropdown-gender')">Gender</button>
+      <div class="dropdown" id="dropdown-gender">
+        <button onclick="setFilter('gender', 'all')">All</button>
+        <button onclick="setFilter('gender', 'male')">Male</button>
+        <button onclick="setFilter('gender', 'female')">Female</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <button class="filter-button" onclick="toggleDropdown('dropdown-type')">Apprenticeship Type</button>
+      <div class="dropdown" id="dropdown-type">
+        <button onclick="setFilter('type', 'all')">All</button>
+        <button onclick="setFilter('type', 'tech')">Tech</button>
+        <button onclick="setFilter('type', 'finance')">Finance</button>
+        <button onclick="setFilter('type', 'law')">Law</button>
+        <button onclick="setFilter('type', 'project')">Project Management</button>
+        <button onclick="setFilter('type', 'construction')">Construction</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <button class="filter-button" onclick="toggleDropdown('dropdown-featured')">Featured</button>
+      <div class="dropdown" id="dropdown-featured">
+        <button onclick="setFilter('featured', 'all')">All</button>
+        <button onclick="setFilter('featured', 'yes')">Only Featured</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="clear-button-wrap">
+    <button class="clear-button" onclick="clearFilters()">Clear Filters</button>
+  </div>
+
+  <div class="mentor-grid" id="mentorGrid">
+    <!-- Mentor cards injected here by JS -->
+  </div>
+
+  <div class="show-more">
+    <button onclick="showMoreMentors()">Show More</button>
+  </div>
+
+</div>
+
+<script>
+  const mentors = [
+    {
+      name: "Wot Di Fuk",
+      type: "tech",
+      gender: "male",
+      featured: "yes",
+      tag: "Tech",
+      tagClass: "tag-tech",
+      fact: "I once debugged a server crash in my sleep",
+      image: "https://apprenticeshipmentoring.co.uk/wp-content/uploads/elementor/thumbs/ChatGPT-Image-Mar-28-2025-08_40_40-AM-r3imlv42kaemrbgnw6guodlm77uwqxoos3iinrg090.png"
+    },
+    {
+      name: "Baljeet Singh",
+      type: "tech",
+      gender: "male",
+      featured: "no",
+      tag: "Tech",
+      tagClass: "tag-tech",
+      fact: "Beleive it or not, I built my first computer at age 12",
+      image: "https://apprenticeshipmentoring.co.uk/wp-content/uploads/elementor/thumbs/ChatGPT-Image-Mar-27-2025-10_07_07-PM-1-r3imqjd6jmsyhio9lp72kp54j6tm0r8n38afkaijb8.png"
+    },
+    {
+      name: "Tyrone Malone",
+      type: "finance",
+      gender: "male",
+      featured: "no",
+      tag: "Finance",
+      tagClass: "tag-finance",
+      fact: "I once calculated interest faster than a calculator",
+      image: "https://apprenticeshipmentoring.co.uk/wp-content/uploads/elementor/thumbs/ChatGPT-Image-Mar-28-2025-08_40_14-AM-r3iml9hs73l1jnib56icvatbcalpjk0ruuyq8q77m6.png"
+    },
+    {
+      name: "Sum Ting Wong",
+      type: "law",
+      gender: "female",
+      featured: "yes",
+      tag: "Law",
+      tagClass: "tag-law",
+      fact: "I can quote over 20 legal cases by heart",
+      image: "https://apprenticeshipmentoring.co.uk/wp-content/uploads/elementor/thumbs/ChatGPT-Image-May-4-2025-09_27_07-PM-r5bvxb64pttdomwpovqgak3x2w90c5cdtotfl8l5qc.png"
+    },
+    {
+      name: "Prita Nanak",
+      type: "project",
+      gender: "female",
+      featured: "no",
+      tag: "Project Management",
+      tagClass: "tag-project",
+      fact: "I use Gantt charts to plan my shopping trips",
+      image: "https://apprenticeshipmentoring.co.uk/wp-content/uploads/elementor/thumbs/ChatGPT-Image-May-4-2025-09_31_10-PM-r5bw4kh9hrr3c8d5b0oqjq6280h1s05rhm6f05tpok.png"
+    },
+    {
+      name: "Felicia Mane",
+      type: "construction",
+      gender: "female",
+      featured: "yes",
+      tag: "Construction",
+      tagClass: "tag-construction",
+      fact: "I once built a shed with no instructions",
+      image: "https://apprenticeshipmentoring.co.uk/wp-content/uploads/elementor/thumbs/ChatGPT-Image-May-4-2025-09_33_25-PM-r5bw7fvidjon0pd7a0rmg9u2dc3o0da5dke7exfk26.png"
+    }
+  ];
+
+  const filters = {
+    gender: 'all',
+    type: 'all',
+    featured: 'all',
+    search: ''
+  };
+
+  let mentorsShown = 6;
+
+  function toggleDropdown(id) {
+    document.querySelectorAll('.dropdown').forEach(d => {
+      if (d.id !== id) d.style.display = 'none';
+    });
+    const dd = document.getElementById(id);
+    dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function setFilter(type, value) {
+    filters[type] = value;
+    renderMentors();
+    document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
+  }
+
+  function clearFilters() {
+    filters.gender = 'all';
+    filters.type = 'all';
+    filters.featured = 'all';
+    filters.search = '';
+    document.getElementById('mentorSearch').value = '';
+    renderMentors();
+  }
+
+  function showMoreMentors() {
+    mentorsShown += 6;
+    renderMentors();
+  }
+
+  function renderMentors() {
+    const grid = document.getElementById('mentorGrid');
+    grid.innerHTML = '';
+
+    const filtered = mentors.filter(m => {
+      return (
+        (filters.gender === 'all' || m.gender === filters.gender) &&
+        (filters.type === 'all' || m.type === filters.type) &&
+        (filters.featured === 'all' || m.featured === filters.featured) &&
+        (m.name.toLowerCase().includes(filters.search) || m.fact.toLowerCase().includes(filters.search))
+      );
+    });
+
+    const visibleMentors = filtered.slice(0, mentorsShown);
+    visibleMentors.forEach(m => {
+      const div = document.createElement('div');
+      div.className = 'mentor-card';
+      div.onclick = () => window.location.href = "https://apprenticeshipmentoring.co.uk/start-learning/";
+      div.innerHTML = `
+  <img src="${m.image}" alt="${m.name}">
+  <h3>${m.name}</h3>
+  ${m.featured === 'yes' ? `<span class="featured-pill">Featured Mentor</span>` : ''}
+  <p>${m.type.charAt(0).toUpperCase() + m.type.slice(1)} Degree Apprentice</p>
+  <p>${m.fact}</p>
+  <span class="mentor-tag ${m.tagClass}">${m.tag}</span>
+`;
+
+
+
+      grid.appendChild(div);
+    });
+
+    document.querySelector('.show-more').style.display = filtered.length > mentorsShown ? 'block' : 'none';
+  }
+
+  document.getElementById('mentorSearch').addEventListener('input', function(e) {
+    filters.search = e.target.value.toLowerCase();
+    renderMentors();
+  });
+
+  renderMentors();
+</script>
