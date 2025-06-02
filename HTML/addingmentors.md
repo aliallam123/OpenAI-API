@@ -80,3 +80,6 @@ You copy and paste card blocks manually.
 Filters work based on the data-featured, data-type, and data-gender attributes.
 
 No plugins or Elementor Pro required.
+
+
+this has changed now
