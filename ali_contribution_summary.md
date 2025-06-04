@@ -7,7 +7,7 @@ This script automates the comparison of financial PDF reports (BEFORE vs AFTER) 
 
 ### ✅ Key Contributions
 
-- Created `RAGITT_ALV01_extract_table_lines()` function to extract structured table lines using regex.
+- Created `extract_table_lines()` function to extract structured table lines using regex.
 - Updated `Check_3()` to run only on one specific report pair for isolated testing.
 - Used `PyPDF2` to extract raw text from PDFs.
 - Wrote comparison logic to identify missing rows between BEFORE and AFTER versions.
