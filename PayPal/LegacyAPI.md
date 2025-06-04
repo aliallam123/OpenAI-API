@@ -1,1 +1,1 @@
-How to use PayPal's Legacy API
+How to use PayPal's Legacy API (for future referance)
