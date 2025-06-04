@@ -1,4 +1,6 @@
-✅ Project Contribution Summary (Ali – report automation)
+✅ Project Contribution Summary (Ali – report automation) 
+
+Worked with a team during my time at PwC on a project that involved Python
 📁 Files worked on:
 Check_3_Raw_Text_Processing.py
 
