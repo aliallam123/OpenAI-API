@@ -1,5 +1,5 @@
 
-# 📊 RAGITT_ALV01 PDF Comparison Automation
+# 📊 PDF Comparison Automation
 
 ## 🔧 What I Did
 
