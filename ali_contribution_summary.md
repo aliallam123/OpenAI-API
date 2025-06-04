@@ -3,7 +3,7 @@
 
 ## 🔧 What I Did
 
-This script automates the comparison of `RAGITT_ALV01` financial PDF reports (BEFORE vs AFTER) and exports the results to Excel.
+This script automates the comparison of financial PDF reports (BEFORE vs AFTER) and exports the results to Excel.
 
 ### ✅ Key Contributions
 
