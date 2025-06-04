@@ -1,4 +1,4 @@
-✅ Project Contribution Summary (Ali – RAGITT_ALV01 report automation)
+✅ Project Contribution Summary (Ali – report automation)
 📁 Files worked on:
 Check_3_Raw_Text_Processing.py
 
