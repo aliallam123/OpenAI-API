@@ -17,6 +17,7 @@ This script automates the comparison of financial PDF reports (BEFORE vs AFTER) 
 - Manually recreated expected folder structure to match legacy repo logic.
 - Prepared all code for team review in a GitHub branch (`ali-branch`).
 - Team reviewed and were very happy with the results
+- Successfully had no discrepancies with the data
 - Learned how to manage GitHub commits and uploads manually without Git CLI access.
 
 ### 📁 Files Modified
