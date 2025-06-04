@@ -36,6 +36,8 @@ This script automates the comparison of financial PDF reports (BEFORE vs AFTER) 
 - Reuse extractor pattern with flexible split markers
 - Push clean version to public repo for portfolio
 
+- This was great experience working on Python debugging as a team
+
 ---
 
 🛠️ _Ali, 2025_
